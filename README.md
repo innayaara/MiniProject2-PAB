@@ -24,7 +24,7 @@ Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Managem
 <br>
 
 <div align="center">
-  <img width="865" alt="Halaman Utama" src="assets/screenshoot/homepage.png" />
+  <img width="865" alt="Halaman Utama" src="manajemen_butik/assets/screenshoot/homepage.png" />
   
   <p align="center">
   <b><em>Halaman Utama</em></b><br>
