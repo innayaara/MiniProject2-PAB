@@ -50,7 +50,7 @@ Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Managem
 <br>
 
 <div align="center">
-  <img width="420" alt="Registrasi Akun" src="assets/screenshoot/register.png" />
+  <img width="420" alt="Registrasi Akun" src="/manajemen_butik/assets/screenshoot/register.png" />
   
   <p align="center">
   <b><em>Registrasi Akun</em></b><br>
@@ -73,7 +73,7 @@ Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Managem
 <br>
 
 <div align="center">
-  <img width="420" alt="Login Pengguna" src="assets/screenshoot/login.png" />
+  <img width="420" alt="Login Pengguna" src="manajemen_butik/assets/screenshoot/login.png" />
   
   <p align="center">
   <b><em>Login Pengguna</em></b><br>
@@ -95,7 +95,7 @@ Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Managem
 <br>
 
 <div align="center">
-  <img width="866" alt="Menambahkan Produk Baru" src="assets/screenshoot/formtambahproduk.png" />
+  <img width="866" alt="Menambahkan Produk Baru" src="manajemen_butik/assets/screenshoot/formtambahproduk.png" />
   
   <p align="center">
   <b><em>Menambahkan Produk Baru</em></b><br>
@@ -115,7 +115,7 @@ Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Managem
 <br>
 
 <div align="center">
-  <img width="942" alt="Menampilkan Daftar Produk" src="assets/screenshoot/daftarproduk.png" />
+  <img width="942" alt="Menampilkan Daftar Produk" src="manajemen_butik/assets/screenshoot/daftarproduk.png" />
 
   <p align="center">
   <b><em>Menampilkan Daftar Produk</em></b><br>
@@ -133,7 +133,7 @@ Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Managem
 <br>
 
 <div align="center">
-  <img width="865" alt="Produk Kosong" src="assets/screenshoot/produkkosong.png" />
+  <img width="865" alt="Produk Kosong" src="manajemen_butik/assets/screenshoot/produkkosong.png" />
   
   <p align="center">
   <b><em>Empty State</em></b><br>
@@ -150,7 +150,7 @@ Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Managem
 <br>
 
 <div align="center">
-  <img width="866" alt="Edit Produk" src="assets/screenshoot/editproduk.png" />
+  <img width="866" alt="Edit Produk" src="manajemen_butik/assets/screenshoot/editproduk.png" />
 
   <p align="center">
   <b><em>Mengedit Produk</em></b><br>
@@ -167,7 +167,7 @@ Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Managem
 <br>
 
 <div align="center">
-  <img width="866" alt="Konfirmasi Hapus" src="assets/screenshoot/konfirmasihapus.png" />
+  <img width="866" alt="Konfirmasi Hapus" src="manajemen_butik/assets/screenshoot/konfirmasihapus.png" />
 
   <p align="center">
   <b><em>Menghapus Produk</em></b><br>
@@ -185,7 +185,7 @@ Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Managem
 <br>
 
 <div align="center">
-  <img width="866" alt="Upload Foto Produk" src="assets/screenshoot/uploadfoto.png" />
+  <img width="866" alt="Upload Foto Produk" src="manajemen_butik/assets/screenshoot/uploadfoto.png" />
   
   <p align="center">
   <b><em>Upload dan Preview Foto Produk</em></b><br>
@@ -209,7 +209,7 @@ Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Managem
 <br>
 
 <div align="center">
-  <img width="866" alt="Loading atau Notifikasi" src="assets/screenshoot/loading.png" />
+  <img width="866" alt="Loading atau Notifikasi" src="manajemen_butik/assets/screenshoot/loading.png" />
 
   <p align="center">
   <b><em>Notifikasi Aksi</em></b><br>
