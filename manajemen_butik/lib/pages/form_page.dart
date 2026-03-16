@@ -133,9 +133,13 @@ class _FormPageState extends State<FormPage> {
         hargaController.text.isEmpty ||
         stokController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Semua field wajib diisi!"),
-          backgroundColor: Colors.red,
+        SnackBar(
+          content: Text(
+            widget.product == null
+                ? "Produk berhasil ditambahkan"
+                : "Produk berhasil diperbarui",
+          ),
+          backgroundColor: const Color(0xFFFF4081),
           behavior: SnackBarBehavior.floating,
         ),
       );
@@ -225,19 +229,25 @@ class _FormPageState extends State<FormPage> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDark ? const Color(0xFF121212) : Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: isDark ? const Color(0xFF1E1E1E) : Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.black, size: 20),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: isDark ? Colors.white : Colors.black,
+            size: 20,
+          ),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           widget.product == null ? "Tambah Produk" : "Edit Produk",
-          style: const TextStyle(
-            color: Colors.black,
+          style: TextStyle(
+            color: isDark ? Colors.white : Colors.black,
             fontWeight: FontWeight.bold,
             fontSize: 18,
           ),
@@ -251,18 +261,18 @@ class _FormPageState extends State<FormPage> {
           children: [
             Text(
               widget.pesan,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey,
+                color: isDark ? Colors.white70 : Colors.grey,
               ),
             ),
             const SizedBox(height: 24),
-            const Text(
+            Text(
               "Foto Produk",
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Colors.black87,
+                color: isDark ? Colors.white : Colors.black87,
               ),
             ),
             const SizedBox(height: 10),
@@ -272,7 +282,9 @@ class _FormPageState extends State<FormPage> {
                 height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFFF0F5),
+                  color: isDark
+                      ? const Color(0xFF1E1E1E)
+                      : const Color(0xFFFFF0F5),
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
                     color: const Color(0xFFFF4081).withOpacity(0.3),
@@ -280,7 +292,7 @@ class _FormPageState extends State<FormPage> {
                     strokeAlign: BorderSide.strokeAlignInside,
                   ),
                 ),
-                child: _buildImagePreview(),
+                child: _buildImagePreview(isDark),
               ),
             ),
             const SizedBox(height: 24),
@@ -288,6 +300,7 @@ class _FormPageState extends State<FormPage> {
               controller: namaController,
               label: "Nama Produk",
               icon: Icons.shopping_bag_outlined,
+              isDark: isDark,
             ),
             const SizedBox(height: 16),
             _buildTextField(
@@ -295,6 +308,7 @@ class _FormPageState extends State<FormPage> {
               label: "Harga (Rp)",
               icon: Icons.payments_outlined,
               keyboardType: TextInputType.number,
+              isDark: isDark,
             ),
             const SizedBox(height: 16),
             _buildTextField(
@@ -302,6 +316,7 @@ class _FormPageState extends State<FormPage> {
               label: "Stok",
               icon: Icons.inventory_2_outlined,
               keyboardType: TextInputType.number,
+              isDark: isDark,
             ),
             const SizedBox(height: 32),
             SizedBox(
@@ -343,7 +358,7 @@ class _FormPageState extends State<FormPage> {
     );
   }
 
-  Widget _buildImagePreview() {
+  Widget _buildImagePreview(bool isDark) {
     if (_selectedImageBytes != null) {
       return ClipRRect(
         borderRadius: BorderRadius.circular(16),
@@ -566,14 +581,14 @@ class _FormPageState extends State<FormPage> {
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Icon(
+      children: [
+        const Icon(
           Icons.add_photo_alternate_outlined,
           size: 48,
           color: Color(0xFFFF4081),
         ),
-        SizedBox(height: 10),
-        Text(
+        const SizedBox(height: 10),
+        const Text(
           "Tap untuk upload foto",
           style: TextStyle(
             color: Color(0xFFFF4081),
@@ -581,11 +596,11 @@ class _FormPageState extends State<FormPage> {
             fontSize: 14,
           ),
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Text(
           "JPG, PNG • Maks 5MB",
           style: TextStyle(
-            color: Colors.grey,
+            color: isDark ? Colors.white54 : Colors.grey,
             fontSize: 12,
           ),
         ),
@@ -597,24 +612,32 @@ class _FormPageState extends State<FormPage> {
     required TextEditingController controller,
     required String label,
     required IconData icon,
+    required bool isDark,
     TextInputType keyboardType = TextInputType.text,
   }) {
     return TextField(
       controller: controller,
       keyboardType: keyboardType,
+      style: TextStyle(
+        color: isDark ? Colors.white : Colors.black,
+      ),
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: const TextStyle(color: Colors.grey),
+        labelStyle: TextStyle(
+          color: isDark ? Colors.white70 : Colors.grey,
+        ),
         prefixIcon: Icon(
           icon,
           color: const Color(0xFFFF4081),
           size: 20,
         ),
         filled: true,
-        fillColor: const Color(0xFFFAFAFA),
+        fillColor: isDark ? const Color(0xFF1E1E1E) : const Color(0xFFFAFAFA),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey[200]!),
+          borderSide: BorderSide(
+            color: isDark ? Colors.white24 : Colors.grey[200]!,
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),

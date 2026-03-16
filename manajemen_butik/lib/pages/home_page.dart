@@ -8,7 +8,12 @@ import 'login_page.dart';
 final supabase = Supabase.instance.client;
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final ValueNotifier<bool> themeNotifier;
+
+  const HomePage({
+    super.key,
+    required this.themeNotifier,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -19,33 +24,33 @@ class _HomePageState extends State<HomePage> {
   bool _isLoading = false;
 
   Future<void> fetchProducts() async {
-  setState(() => _isLoading = true);
+    setState(() => _isLoading = true);
 
-  try {
-    final data = await supabase.from('produk').select().order('id');
+    try {
+      final data = await supabase.from('produk').select().order('id');
 
-    await Future.delayed(const Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 3));
 
-    if (!mounted) return;
+      if (!mounted) return;
 
-    setState(() {
-      products = (data as List).map((e) => Product.fromJson(e)).toList();
-    });
-  } catch (e) {
-    if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text("Gagal mengambil data produk: $e"),
-        backgroundColor: Colors.red,
-        behavior: SnackBarBehavior.floating,
-      ),
-    );
-  } finally {
-    if (mounted) {
-      setState(() => _isLoading = false);
+      setState(() {
+        products = (data as List).map((e) => Product.fromJson(e)).toList();
+      });
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Gagal mengambil data produk: $e"),
+          backgroundColor: Colors.red,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
-}
 
   @override
   void initState() {
@@ -69,14 +74,27 @@ class _HomePageState extends State<HomePage> {
       return;
     }
 
+    final bool isDark = widget.themeNotifier.value;
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
+        backgroundColor: isDark ? const Color(0xFF1E1E1E) : Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        title: const Text("Konfirmasi"),
-        content: const Text("Yakin ingin menghapus produk ini?"),
+        title: Text(
+          "Konfirmasi",
+          style: TextStyle(
+            color: isDark ? Colors.white : Colors.black,
+          ),
+        ),
+        content: Text(
+          "Yakin ingin menghapus produk ini?",
+          style: TextStyle(
+            color: isDark ? Colors.white70 : Colors.black87,
+          ),
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
@@ -139,78 +157,204 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _goToLogin() {
+  Future<void> _handleAuthButton() async {
+  final user = supabase.auth.currentUser;
+
+  if (user == null) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (_) => const LoginPage()),
+      MaterialPageRoute(
+        builder: (_) => LoginPage(themeNotifier: widget.themeNotifier),
+      ),
+    );
+  } else {
+    final bool? confirmLogout = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: widget.themeNotifier.value
+            ? const Color(0xFF1E1E1E)
+            : Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        title: Text(
+          "Konfirmasi Logout",
+          style: TextStyle(
+            color: widget.themeNotifier.value ? Colors.white : Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        content: Text(
+          "Apakah Anda yakin ingin keluar?",
+          style: TextStyle(
+            color: widget.themeNotifier.value
+                ? Colors.white70
+                : Colors.black87,
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text("Batal"),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFFFF4081),
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text("Ya"),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmLogout == true) {
+      await supabase.auth.signOut();
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Berhasil logout."),
+          backgroundColor: Colors.pinkAccent,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+
+      setState(() {});
+    }
+  }
+}
+
+  Widget _buildThemeToggle(bool isDark) {
+    return GestureDetector(
+      onTap: () {
+        widget.themeNotifier.value = !widget.themeNotifier.value;
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        curve: Curves.easeInOut,
+        width: 62,
+        height: 34,
+        padding: const EdgeInsets.symmetric(horizontal: 4),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: isDark ? const Color(0xFF2A2A2A) : const Color(0xFFD9D9D9),
+          border: Border.all(
+            color:
+                isDark ? const Color(0xFFFF4081) : Colors.grey.shade500,
+            width: 1.2,
+          ),
+        ),
+        child: AnimatedAlign(
+          duration: const Duration(milliseconds: 250),
+          curve: Curves.easeInOut,
+          alignment: isDark ? Alignment.centerRight : Alignment.centerLeft,
+          child: Container(
+            width: 24,
+            height: 24,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: isDark ? const Color(0xFFFF4081) : Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.18),
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Icon(
+              isDark ? Icons.dark_mode : Icons.light_mode,
+              size: 15,
+              color: isDark ? Colors.white : const Color(0xFFFF4081),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.menu, color: Colors.black),
-          onPressed: () {},
-        ),
-        title: const Text(
-          "NAYO BOUTIQUE",
-          style: TextStyle(
-            color: Color(0xFFFF4081),
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-            letterSpacing: 1.5,
-          ),
-        ),
-        centerTitle: true,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 12),
-            child: TextButton(
-              onPressed: _goToLogin,
-              style: TextButton.styleFrom(
-                foregroundColor: const Color(0xFFFF4081),
+    return ValueListenableBuilder<bool>(
+      valueListenable: widget.themeNotifier,
+      builder: (context, isDark, _) {
+        final user = supabase.auth.currentUser;
+        final authLabel = user == null ? "Login" : "Logout";
+
+        return Scaffold(
+          backgroundColor: isDark ? const Color(0xFF121212) : Colors.white,
+          appBar: AppBar(
+            backgroundColor: isDark ? const Color(0xFF1E1E1E) : Colors.white,
+            elevation: 0,
+            automaticallyImplyLeading: false,
+            titleSpacing: 16,
+            title: const Text(
+              "NAYO BOUTIQUE",
+              style: TextStyle(
+                color: Color(0xFFFF4081),
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                letterSpacing: 1.5,
               ),
-              child: const Text(
-                "Login",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
+            ),
+            centerTitle: false,
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: _buildThemeToggle(isDark),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: TextButton(
+                  onPressed: _handleAuthButton,
+                  style: TextButton.styleFrom(
+                    foregroundColor: const Color(0xFFFF4081),
+                  ),
+                  child: Text(
+                    authLabel,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
                 ),
+              ),
+            ],
+          ),
+          
+          body: RefreshIndicator(
+            onRefresh: fetchProducts,
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildHeroBanner(),
+                  const SizedBox(height: 24),
+                  _buildSectionHeader(
+                    "Koleksi Terbaru",
+                    _isLoading ? "Memuat..." : "${products.length} Produk",
+                    isDark,
+                  ),
+                  const SizedBox(height: 12),
+                  _buildProductGrid(isDark),
+                  const SizedBox(height: 24),
+                ],
               ),
             ),
           ),
-        ],
-      ),
-      body: RefreshIndicator(
-        onRefresh: fetchProducts,
-        child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildHeroBanner(),
-              const SizedBox(height: 24),
-              _buildSectionHeader(
-                "Koleksi Terbaru",
-                _isLoading ? "Memuat..." : "${products.length} Produk",
-              ),
-              const SizedBox(height: 12),
-              _buildProductGrid(),
-              const SizedBox(height: 24),
-            ],
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: const Color(0xFFFF4081),
+            onPressed: () => navigateToForm(),
+            child: const Icon(Icons.add, color: Colors.white),
           ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFFFF4081),
-        onPressed: () => navigateToForm(),
-        child: const Icon(Icons.add, color: Colors.white),
-      ),
+        );
+      },
     );
   }
 
@@ -241,12 +385,12 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
               bottom: 24,
               left: 24,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
                     "SEASON 2026",
                     style: TextStyle(
@@ -272,7 +416,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildSectionHeader(String title, String action) {
+  Widget _buildSectionHeader(String title, String action, bool isDark) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
@@ -280,10 +424,10 @@ class _HomePageState extends State<HomePage> {
         children: [
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: isDark ? Colors.white : Colors.black,
             ),
           ),
           Text(
@@ -299,7 +443,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildProductGrid() {
+  Widget _buildProductGrid(bool isDark) {
     if (_isLoading) {
       return const Padding(
         padding: EdgeInsets.all(32),
@@ -312,10 +456,15 @@ class _HomePageState extends State<HomePage> {
     }
 
     if (products.isEmpty) {
-      return const Padding(
-        padding: EdgeInsets.all(32),
+      return Padding(
+        padding: const EdgeInsets.all(32),
         child: Center(
-          child: Text("Belum ada produk 🛍️"),
+          child: Text(
+            "Belum ada produk 🛍️",
+            style: TextStyle(
+              color: isDark ? Colors.white70 : Colors.black87,
+            ),
+          ),
         ),
       );
     }
@@ -340,11 +489,13 @@ class _HomePageState extends State<HomePage> {
             onTap: () => navigateToForm(product: product),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: isDark ? const Color(0xFF1E1E1E) : Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.07),
+                    color: isDark
+                        ? Colors.black.withOpacity(0.25)
+                        : Colors.black.withOpacity(0.07),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -422,10 +573,10 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text(
                           product.nama,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black87,
+                            color: isDark ? Colors.white : Colors.black87,
                           ),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
@@ -445,9 +596,9 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Text(
                               "Stok: ${product.stok}",
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 11,
-                                color: Colors.grey,
+                                color: isDark ? Colors.white70 : Colors.grey,
                               ),
                             ),
                             Row(
