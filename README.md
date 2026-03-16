@@ -51,14 +51,14 @@ Selain itu, halaman utama juga dilengkapi dengan:
 - tombol tambah produk
 - fitur pull to refresh untuk memuat ulang data produk
 
-#### Tampilan Homepage (Light Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/homepage-light.png" alt="Homepage Light" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/homepage-light.png" alt="Homepage Light" width="420"/><br><br>
+  <b>Tampilan Homepage (Light Mode)</b>
 </p>
 
-#### Tampilan Homepage (Dark Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/homepage-dark.png" alt="Homepage Dark" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/homepage-dark.png" alt="Homepage Dark" width="420"/><br><br>
+  <b>Tampilan Homepage (Dark Mode)</b>
 </p>
 
 </details>
@@ -82,14 +82,14 @@ Pada proses registrasi, aplikasi akan melakukan validasi terlebih dahulu, sepert
 
 Jika data valid, akun akan didaftarkan menggunakan Supabase Auth.
 
-#### Tampilan Register (Light Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/register-light.png" alt="Register Light" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/register-light.png" alt="Register Light" width="420"/><br><br>
+  <b>Tampilan Register (Light Mode)</b>
 </p>
 
-#### Tampilan Register (Dark Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/register-dark.png" alt="Register Dark" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/register-dark.png" alt="Register Dark" width="420"/><br><br>
+  <b>Tampilan Register (Dark Mode)</b>
 </p>
 
 </details>
@@ -106,14 +106,14 @@ Fitur yang tersedia pada halaman login:
 - tombol show / hide password
 - notifikasi berhasil atau gagal login menggunakan SnackBar
 
-#### Tampilan Login (Light Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/login-light.png" alt="Login Light" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/login-light.png" alt="Login Light" width="420"/><br><br>
+  <b>Tampilan Login (Light Mode)</b>
 </p>
 
-#### Tampilan Login (Dark Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/login-dark.png" alt="Login Dark" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/login-dark.png" alt="Login Dark" width="420"/><br><br>
+  <b>Tampilan Login (Dark Mode)</b>
 </p>
 
 </details>
@@ -131,14 +131,14 @@ Pengguna dapat menambahkan produk baru melalui halaman form dengan mengisi:
 
 Setelah data diisi, aplikasi akan melakukan validasi terlebih dahulu. Jika valid, data akan disimpan ke tabel produk pada database Supabase. Jika pengguna memilih foto, maka foto akan diunggah ke Supabase Storage.
 
-#### Tampilan Tambah Produk (Light Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/tambahproduk-light.png" alt="Tambah Produk Light" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/tambahproduk-light.png" alt="Tambah Produk Light" width="420"/><br><br>
+  <b>Tampilan Tambah Produk (Light Mode)</b>
 </p>
 
-#### Tampilan Tambah Produk (Dark Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/tambahproduk-dark.png" alt="Tambah Produk Dark" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/tambahproduk-dark.png" alt="Tambah Produk Dark" width="420"/><br><br>
+  <b>Tampilan Tambah Produk (Dark Mode)</b>
 </p>
 
 </details>
@@ -156,9 +156,9 @@ Data produk yang berhasil ditambahkan akan ditampilkan pada halaman utama dalam 
 
 Daftar produk ditampilkan secara dinamis dari database Supabase.
 
-#### Tampilan Daftar Produk
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/daftarproduk.png" alt="Daftar Produk" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/daftarproduk.png" alt="Daftar Produk" width="420"/><br><br>
+  <b>Tampilan Daftar Produk</b>
 </p>
 
 </details>
@@ -169,9 +169,9 @@ Daftar produk ditampilkan secara dinamis dari database Supabase.
 
 Jika belum ada produk yang tersimpan di database, aplikasi akan menampilkan tampilan kosong dengan pesan bahwa produk belum tersedia. Fitur ini membantu pengguna agar tetap mendapatkan feedback visual saat data masih kosong.
 
-#### Tampilan Produk Kosong
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/produkkosong.png" alt="Produk Kosong" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/produkkosong.png" alt="Produk Kosong" width="420"/><br><br>
+  <b>Tampilan Produk Kosong</b>
 </p>
 
 </details>
@@ -184,14 +184,14 @@ Produk yang sudah ditambahkan dapat diedit kembali. Pengguna bisa membuka halama
 
 Pada halaman ini, data lama akan ditampilkan kembali ke dalam form sehingga pengguna tinggal memperbarui data yang ingin diubah. Setelah disimpan, data akan diperbarui kembali pada database.
 
-#### Tampilan Edit Produk (Light Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/editproduk-light.png" alt="Edit Produk Light" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/editproduk-light.png" alt="Edit Produk Light" width="420"/><br><br>
+  <b>Tampilan Edit Produk (Light Mode)</b>
 </p>
 
-#### Tampilan Edit Produk (Dark Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/editproduk-dark.png" alt="Edit Produk Dark" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/editproduk-dark.png" alt="Edit Produk Dark" width="420"/><br><br>
+  <b>Tampilan Edit Produk (Dark Mode)</b>
 </p>
 
 </details>
@@ -202,14 +202,14 @@ Pada halaman ini, data lama akan ditampilkan kembali ke dalam form sehingga peng
 
 Pengguna dapat menghapus produk melalui tombol hapus yang tersedia pada setiap item produk. Sebelum data dihapus, aplikasi akan menampilkan dialog konfirmasi terlebih dahulu agar pengguna tidak salah menghapus data.
 
-#### Tampilan Konfirmasi Hapus (Light Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/konfirmasihapus.light.png" alt="Konfirmasi Hapus Light" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/konfirmasihapus.light.png" alt="Konfirmasi Hapus Light" width="420"/><br><br>
+  <b>Tampilan Konfirmasi Hapus (Light Mode)</b>
 </p>
 
-#### Tampilan Konfirmasi Hapus (Dark Mode)
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/konfirmasihapus-dark.png" alt="Konfirmasi Hapus Dark" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/konfirmasihapus-dark.png" alt="Konfirmasi Hapus Dark" width="420"/><br><br>
+  <b>Tampilan Konfirmasi Hapus (Dark Mode)</b>
 </p>
 
 </details>
@@ -230,14 +230,14 @@ Pada fitur ini, pengguna juga bisa:
 
 Foto yang berhasil diunggah akan disimpan pada bucket **produk-images** di **Supabase Storage**.
 
-#### Tampilan Upload Foto
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/uploadfoto.png" alt="Upload Foto" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/uploadfoto.png" alt="Upload Foto" width="420"/><br><br>
+  <b>Tampilan Upload Foto</b>
 </p>
 
-#### Tampilan Supabase Storage
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/supabase-storage.png" alt="Supabase Storage" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/supabase-storage.png" alt="Supabase Storage" width="420"/><br><br>
+  <b>Tampilan Supabase Storage</b>
 </p>
 
 </details>
@@ -255,29 +255,29 @@ Aplikasi menampilkan notifikasi menggunakan SnackBar sebagai feedback kepada pen
 - produk berhasil dihapus
 - terjadi error saat proses tertentu
 
-#### Notifikasi Login Berhasil
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/notifikasiberhasillogin.png" alt="Notifikasi Login Berhasil" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/notifikasiberhasillogin.png" alt="Notifikasi Login Berhasil" width="420"/><br><br>
+  <b>Notifikasi Login Berhasil</b>
 </p>
 
-#### Notifikasi Logout Berhasil
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/notifikasiberhasillogout.png" alt="Notifikasi Logout Berhasil" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/notifikasiberhasillogout.png" alt="Notifikasi Logout Berhasil" width="420"/><br><br>
+  <b>Notifikasi Logout Berhasil</b>
 </p>
 
-#### Notifikasi Produk Ditambahkan
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/notifikasiprodukditambahkan.png" alt="Notifikasi Produk Ditambahkan" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/notifikasiprodukditambahkan.png" alt="Notifikasi Produk Ditambahkan" width="420"/><br><br>
+  <b>Notifikasi Produk Ditambahkan</b>
 </p>
 
-#### Notifikasi Produk Diperbarui
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/notifikasiprodukdiperbarui.png" alt="Notifikasi Produk Diperbarui" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/notifikasiprodukdiperbarui.png" alt="Notifikasi Produk Diperbarui" width="420"/><br><br>
+  <b>Notifikasi Produk Diperbarui</b>
 </p>
 
-#### Notifikasi Produk Dihapus
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/notifikasiprodukdihapus.png" alt="Notifikasi Produk Dihapus" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/notifikasiprodukdihapus.png" alt="Notifikasi Produk Dihapus" width="420"/><br><br>
+  <b>Notifikasi Produk Dihapus</b>
 </p>
 
 </details>
@@ -288,9 +288,9 @@ Aplikasi menampilkan notifikasi menggunakan SnackBar sebagai feedback kepada pen
 
 Aplikasi juga menampilkan loading indicator saat proses tertentu sedang berjalan, seperti saat mengambil data produk, login, registrasi, maupun menyimpan data produk. Hal ini membantu pengguna mengetahui bahwa sistem sedang memproses permintaan.
 
-#### Tampilan Loading
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/loading.png" alt="Loading" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/loading.png" alt="Loading" width="420"/><br><br>
+  <b>Tampilan Loading</b>
 </p>
 
 </details>
@@ -301,9 +301,9 @@ Aplikasi juga menampilkan loading indicator saat proses tertentu sedang berjalan
 
 Ketika pengguna sudah login, tombol Login pada AppBar akan berubah menjadi Logout. Saat tombol tersebut ditekan, aplikasi akan menampilkan dialog konfirmasi sebelum pengguna benar-benar keluar dari akun.
 
-#### Tampilan Konfirmasi Logout
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/konfirmasilogout.png" alt="Konfirmasi Logout" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/konfirmasilogout.png" alt="Konfirmasi Logout" width="420"/><br><br>
+  <b>Tampilan Konfirmasi Logout</b>
 </p>
 
 </details>
@@ -314,9 +314,9 @@ Ketika pengguna sudah login, tombol Login pada AppBar akan berubah menjadi Logou
 
 Semua data produk disimpan pada tabel **produk** di Supabase. Data yang disimpan meliputi nama produk, harga, stok, dan URL foto produk.
 
-#### Tampilan Tabel Produk di Supabase
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/supabase-table.png" alt="Supabase Table" width="300"/>
+  <img src="manajemen_butik/assets/screenshot/supabase-table.png" alt="Supabase Table" width="420"/><br><br>
+  <b>Tampilan Tabel Produk di Supabase</b>
 </p>
 
 </details>
