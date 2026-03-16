@@ -1,7 +1,7 @@
 # 🛍️ Nayo Boutique
 Aplikasi manajemen produk butik berbasis Flutter.
 
-| ✨ Nama Lengkap              | 🆔 NIM        | 📚 Kelas                 |
+|  Nama Lengkap              |  NIM        |  Kelas                 |
 |------------------------------|---------------|--------------------------|
 | **Indah Maramin Al Inayah**  | 2409116086    | Sistem Informasi C 2024  |
 
@@ -9,11 +9,11 @@ Aplikasi manajemen produk butik berbasis Flutter.
 
 ## Deskripsi Aplikasi
 
-Aplikasi Nayo Boutique merupakan aplikasi berbasis Flutter yang dibuat untuk mengelola data produk butik. Aplikasi ini memungkinkan pengguna untuk melakukan registrasi akun, login, menambahkan, mengedit, dan menghapus data produk secara dinamis.
+Aplikasi Nayo Boutique merupakan aplikasi berbasis Flutter yang dibuat untuk mengelola data produk butik. Aplikasi ini memungkinkan pengguna untuk melakukan Nayo Boutique merupakan aplikasi berbasis Flutter yang dirancang untuk membantu pengelolaan data produk butik secara lebih praktis dan terstruktur. Melalui aplikasi ini, pengguna dapat melakukan registrasi akun, login, serta menambahkan, mengedit, dan menghapus data produk dengan lebih mudah.
 
-Setiap produk memiliki informasi berupa nama produk, harga, stok, dan foto produk. Data produk disimpan pada database menggunakan Supabase, sedangkan gambar produk disimpan pada Supabase Storage. Aplikasi ini juga menggunakan konsep State Management dengan StatefulWidget dan setState() untuk memperbarui tampilan secara real-time setelah terjadi perubahan data.
+Setiap produk pada aplikasi ini memiliki beberapa informasi utama, yaitu nama produk, harga, stok, dan foto produk. Seluruh data produk disimpan menggunakan Supabase sebagai database, sedangkan foto produk disimpan melalui Supabase Storage. Dalam pengembangannya, aplikasi ini juga memanfaatkan StatefulWidget dan setState() agar tampilan dapat langsung diperbarui setiap kali terjadi perubahan data.
 
-Aplikasi ini dibuat sebagai implementasi dari materi Widget Dasar, State Management Dasar, Form Input, Navigasi Antar Halaman, dan Integrasi Backend pada mata kuliah Mobile Application Programming, dengan tujuan memahami cara kerja perubahan state, autentikasi pengguna, serta pengelolaan data berbasis cloud.
+Aplikasi ini dibuat sebagai bagian dari implementasi materi Widget Dasar, State Management Dasar, Form Input, Navigasi Antar Halaman, dan Integrasi Backend pada mata kuliah Mobile Application Programming. Melalui project ini, saya dapat mempelajari bagaimana proses pengelolaan state, autentikasi pengguna, serta penyimpanan data berbasis cloud diterapkan dalam sebuah aplikasi Flutter.
 
 ---
 
