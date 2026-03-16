@@ -1,272 +1,410 @@
 # 🛍️ Nayo Boutique
-Aplikasi manajemen produk butik berbasis Flutter.
 
-|  Nama Lengkap              |  NIM        |  Kelas                 |
-|------------------------------|---------------|--------------------------|
-| **Indah Maramin Al Inayah**  | 2409116086    | Sistem Informasi C 2024  |
+Aplikasi manajemen produk butik berbasis Flutter yang saya buat untuk membantu pengelolaan data produk agar lebih rapi, praktis, dan mudah diakses.
+
+| Nama Lengkap | NIM | Kelas |
+|---|---:|---|
+| **Indah Maramin Al Inayah** | **2409116086** | **Sistem Informasi C 2024** |
 
 ---
 
 ## Deskripsi Aplikasi
 
-Aplikasi Nayo Boutique merupakan aplikasi berbasis Flutter yang dibuat untuk mengelola data produk butik. Aplikasi ini memungkinkan pengguna untuk melakukan Nayo Boutique merupakan aplikasi berbasis Flutter yang dirancang untuk membantu pengelolaan data produk butik secara lebih praktis dan terstruktur. Melalui aplikasi ini, pengguna dapat melakukan registrasi akun, login, serta menambahkan, mengedit, dan menghapus data produk dengan lebih mudah.
+**Nayo Boutique** adalah aplikasi berbasis **Flutter** yang saya buat untuk mengelola data produk butik secara lebih praktis dan terstruktur. Melalui aplikasi ini, pengguna bisa melakukan **registrasi akun, login, menambahkan produk, mengedit produk, menghapus produk**, serta **mengunggah foto produk**.
 
-Setiap produk pada aplikasi ini memiliki beberapa informasi utama, yaitu nama produk, harga, stok, dan foto produk. Seluruh data produk disimpan menggunakan Supabase sebagai database, sedangkan foto produk disimpan melalui Supabase Storage. Dalam pengembangannya, aplikasi ini juga memanfaatkan StatefulWidget dan setState() agar tampilan dapat langsung diperbarui setiap kali terjadi perubahan data.
+Setiap produk memiliki beberapa informasi utama, yaitu:
 
-Aplikasi ini dibuat sebagai bagian dari implementasi materi Widget Dasar, State Management Dasar, Form Input, Navigasi Antar Halaman, dan Integrasi Backend pada mata kuliah Mobile Application Programming. Melalui project ini, saya dapat mempelajari bagaimana proses pengelolaan state, autentikasi pengguna, serta penyimpanan data berbasis cloud diterapkan dalam sebuah aplikasi Flutter.
+- **Nama produk**
+- **Harga**
+- **Stok**
+- **Foto produk**
+
+Untuk penyimpanan data, aplikasi ini menggunakan **Supabase** sebagai backend. Data produk disimpan pada **database Supabase**, sedangkan foto produk disimpan melalui **Supabase Storage**. Selain itu, fitur autentikasi seperti **register, login, logout, dan reset password** juga memanfaatkan **Supabase Auth**.
+
+Dalam proses pengembangannya, saya menggunakan **StatefulWidget** dan **setState()** untuk mengatur perubahan tampilan secara langsung ketika data berubah, misalnya saat produk berhasil ditambahkan, diedit, dihapus, atau saat proses login berlangsung.
+
+Aplikasi ini dibuat sebagai bagian dari implementasi materi pada mata kuliah **Mobile Application Programming**, khususnya pada pembahasan:
+
+- Widget Dasar
+- State Management Dasar
+- Form Input
+- Navigasi Antar Halaman
+- Integrasi Backend
+
+Melalui project ini, saya jadi lebih memahami bagaimana cara membangun aplikasi Flutter yang terhubung dengan backend, mengelola state, melakukan autentikasi pengguna, serta menyimpan data dan file berbasis cloud.
 
 ---
 
 ## Fitur Aplikasi
 
-<details>
-<summary><b>1. Halaman Utama</b></summary>
-<br>
+### 1. Halaman Utama
 
-<div align="center">
-  <img width="865" alt="Halaman Utama" src="manajemen_butik/assets/screenshoot/homepage.png" />
-  
-  <p align="center">
-  <b><em>Halaman Utama</em></b><br>
-  Halaman utama menampilkan daftar produk yang diambil dari database Supabase. 
-  Jika belum ada produk yang tersedia, maka akan muncul pesan 
-  <b>"Belum ada produk 🛍️"</b> sebagai indikator bahwa data masih kosong.
-  <br><br>
-  Pada halaman ini juga terdapat beberapa komponen utama, yaitu:
-  <br>
-  - Banner aplikasi sebagai identitas visual<br>
-  - Judul aplikasi di bagian atas halaman<br>
-  - Tombol Login pada AppBar<br>
-  - FloatingActionButton (+) untuk menambahkan produk baru<br>
-  - Grid daftar produk yang menampilkan foto, nama, harga, dan stok<br>
-  </p>
+Halaman utama menampilkan daftar produk yang diambil dari database Supabase. Pada halaman ini, pengguna bisa melihat koleksi produk dalam bentuk grid/card yang berisi foto, nama produk, harga, dan stok.
 
-</div>
-<br>
-</details>
+Selain itu, halaman utama juga dilengkapi dengan:
 
-<details>
-<summary><b>2. Registrasi Akun</b></summary>
-<br>
+- banner aplikasi sebagai identitas visual
+- tombol **Login** atau **Logout**
+- tombol toggle **dark mode / light mode**
+- tombol **tambah produk**
+- fitur **pull to refresh** untuk memuat ulang data produk
 
-<div align="center">
-  <img width="420" alt="Registrasi Akun" src="/manajemen_butik/assets/screenshoot/register.png" />
-  
-  <p align="center">
-  <b><em>Registrasi Akun</em></b><br>
-  Pengguna dapat membuat akun baru dengan mengisi nama lengkap, email, kata sandi, dan konfirmasi kata sandi.
-  <br><br>
-  Pada proses registrasi, aplikasi akan melakukan validasi:
-  <br>
-  - Semua field wajib diisi<br>
-  - Kata sandi dan konfirmasi kata sandi harus sama<br>
-  - Kata sandi minimal 6 karakter<br>
-  <br>
-  Jika berhasil, akun akan didaftarkan ke Supabase Auth dan pengguna akan diarahkan ke halaman login.
-  </p>
-</div>
-<br>
-</details>
+#### Tampilan Homepage (Light Mode)
+<p align="center">
+  <img src="assets/screenshot/homepage-light.png" alt="Homepage Light" width="300"/>
+</p>
 
-<details>
-<summary><b>3. Login Pengguna</b></summary>
-<br>
-
-<div align="center">
-  <img width="420" alt="Login Pengguna" src="manajemen_butik/assets/screenshoot/login.png" />
-  
-  <p align="center">
-  <b><em>Login Pengguna</em></b><br>
-  Pengguna dapat masuk ke aplikasi menggunakan email dan kata sandi yang telah terdaftar.
-  <br><br>
-  Halaman login dilengkapi dengan beberapa fitur, yaitu:
-  <br>
-  - Validasi input email dan kata sandi<br>
-  - Tombol show/hide password<br>
-  - Fitur <b>Lupa Kata Sandi</b><br>
-  - Notifikasi login berhasil atau gagal menggunakan SnackBar<br>
-  </p>
-</div>
-<br>
-</details>
-
-<details>
-<summary><b>4. Menambahkan Produk Baru</b></summary>
-<br>
-
-<div align="center">
-  <img width="866" alt="Menambahkan Produk Baru" src="manajemen_butik/assets/screenshoot/formtambahproduk.png" />
-  
-  <p align="center">
-  <b><em>Menambahkan Produk Baru</em></b><br>
-  Pengguna dapat menambahkan produk baru dengan mengisi nama produk, harga, stok, dan memilih foto produk melalui halaman form.
-  <br><br>
-  Data yang dimasukkan akan divalidasi terlebih dahulu, kemudian disimpan ke tabel 
-  <b>produk</b> pada database Supabase. Jika pengguna memilih gambar, maka gambar akan diunggah ke 
-  <b>Supabase Storage</b>.
-  </p>
-
-</div>
-<br>
-</details>
-
-<details>
-<summary><b>5. Menampilkan Daftar Produk</b></summary>
-<br>
-
-<div align="center">
-  <img width="942" alt="Menampilkan Daftar Produk" src="manajemen_butik/assets/screenshoot/daftarproduk.png" />
-
-  <p align="center">
-  <b><em>Menampilkan Daftar Produk</em></b><br>
-  Aplikasi menampilkan daftar produk dalam bentuk card/grid. 
-  Setiap card berisi informasi foto produk, nama produk, harga, dan stok yang tersedia.
-  Data akan ditampilkan secara dinamis setelah berhasil diambil dari database.
-  </p>
-
-</div>
-<br>
-</details>
-
-<details>
-<summary><b>6. Empty State (Belum Ada Produk)</b></summary>
-<br>
-
-<div align="center">
-  <img width="865" alt="Produk Kosong" src="manajemen_butik/assets/screenshoot/produkkosong.png" />
-  
-  <p align="center">
-  <b><em>Empty State</em></b><br>
-  Jika belum ada produk yang tersimpan pada database, aplikasi akan menampilkan pesan 
-  <b>"Belum ada produk 🛍️"</b> sebagai indikator bahwa daftar produk masih kosong.
-  </p>
-
-</div>
-<br>
-</details>
-
-<details>
-<summary><b>7. Mengedit Produk</b></summary>
-<br>
-
-<div align="center">
-  <img width="866" alt="Edit Produk" src="manajemen_butik/assets/screenshoot/editproduk.png" />
-
-  <p align="center">
-  <b><em>Mengedit Produk</em></b><br>
-  Pengguna dapat mengubah data produk yang telah ditambahkan melalui tombol edit atau dengan menekan card produk.
-  Setelah perubahan disimpan, data pada halaman utama akan langsung diperbarui kembali dari database.
-  </p>
-
-</div>
-<br>
-</details>
-
-<details>
-<summary><b>8. Menghapus Produk dengan Konfirmasi</b></summary>
-<br>
-
-<div align="center">
-  <img width="866" alt="Konfirmasi Hapus" src="manajemen_butik/assets/screenshoot/konfirmasihapus.png" />
-
-  <p align="center">
-  <b><em>Menghapus Produk</em></b><br>
-  Pengguna dapat menghapus produk melalui tombol hapus. 
-  Sebelum data dihapus secara permanen, akan muncul dialog konfirmasi 
-  untuk memastikan tindakan pengguna.
-  </p>
-
-</div>
-<br>
-</details>
-
-<details>
-<summary><b>9. Upload dan Preview Foto Produk</b></summary>
-<br>
-
-<div align="center">
-  <img width="866" alt="Upload Foto Produk" src="manajemen_butik/assets/screenshoot/uploadfoto.png" />
-  
-  <p align="center">
-  <b><em>Upload dan Preview Foto Produk</em></b><br>
-  Aplikasi mendukung pemilihan gambar produk dari galeri menggunakan <b>image_picker</b>.
-  <br><br>
-  Setelah gambar dipilih, aplikasi akan menampilkan preview gambar sebelum data disimpan.
-  Pengguna juga dapat:
-  <br>
-  - Mengganti gambar yang dipilih<br>
-  - Menghapus gambar yang dipilih<br>
-  - Menampilkan foto lama saat proses edit produk<br>
-  <br>
-  Foto produk yang berhasil diunggah akan disimpan di bucket <b>produk-images</b> pada Supabase Storage.
-  </p>
-</div>
-<br>
-</details>
-
-<details>
-<summary><b>10. Notifikasi Aksi (SnackBar)</b></summary>
-<br>
-
-<div align="center">
-  <img width="866" alt="Loading atau Notifikasi" src="manajemen_butik/assets/screenshoot/loading.png" />
-
-  <p align="center">
-  <b><em>Notifikasi Aksi</em></b><br>
-  Aplikasi menampilkan notifikasi (SnackBar) setelah berhasil melakukan aksi seperti login, registrasi, menambahkan produk, mengedit produk, menghapus produk, maupun saat terjadi kesalahan sebagai bentuk feedback kepada pengguna.
-  </p>
-
-</div>
-<br>
-</details>
+#### Tampilan Homepage (Dark Mode)
+<p align="center">
+  <img src="assets/screenshot/homepage-dark.png" alt="Homepage Dark" width="300"/>
+</p>
 
 ---
 
-## 3. Widget yang Digunakan  
+### 2. Registrasi Akun
 
-Berikut adalah widget yang digunakan dalam pengembangan aplikasi **Nayo Boutique** beserta fungsinya:
+Pengguna dapat membuat akun baru dengan mengisi:
 
-- **`MaterialApp`**: Digunakan sebagai root aplikasi yang menerapkan desain Material Design serta mengatur tema dan struktur dasar aplikasi.
+- nama lengkap
+- email
+- kata sandi
+- konfirmasi kata sandi
 
-- **`Scaffold`**: Berfungsi sebagai kerangka utama halaman yang terdiri dari AppBar, Body, dan FloatingActionButton.
+Pada proses registrasi, aplikasi akan melakukan validasi terlebih dahulu, seperti:
 
-- **`AppBar`**: Digunakan untuk menampilkan judul aplikasi, tombol login, dan navigasi pada bagian atas layar.
+- semua field wajib diisi
+- kata sandi dan konfirmasi kata sandi harus sama
+- kata sandi minimal 6 karakter
 
-- **`Column & Row`**:  
-  Column digunakan untuk menyusun widget secara vertikal, sedangkan Row digunakan untuk menyusun widget secara horizontal.
+Jika data valid, akun akan didaftarkan menggunakan **Supabase Auth**.
 
-- **`Container`**: Digunakan untuk mengatur ukuran, margin, padding, serta dekorasi pada tampilan.
+#### Tampilan Register (Light Mode)
+<p align="center">
+  <img src="assets/screenshot/register-light.png" alt="Register Light" width="300"/>
+</p>
 
-- **`SingleChildScrollView`**: Digunakan agar halaman dapat digulir, terutama pada form dan halaman autentikasi.
+#### Tampilan Register (Dark Mode)
+<p align="center">
+  <img src="assets/screenshot/register-dark.png" alt="Register Dark" width="300"/>
+</p>
 
-- **`GridView.builder`**: Digunakan untuk menampilkan daftar produk secara dinamis dalam bentuk grid berdasarkan data yang tersedia.
+---
 
-- **`Card / Container`**: Digunakan untuk menampilkan informasi produk dalam tampilan yang lebih terstruktur dan menarik.
+### 3. Login Pengguna
 
-- **`Text`**: Digunakan untuk menampilkan teks seperti nama produk, harga, stok, judul halaman, dan pesan lainnya.
+Halaman login digunakan agar pengguna dapat masuk ke aplikasi menggunakan akun yang sudah terdaftar. Pengguna login dengan **email** dan **kata sandi**.
 
-- **`TextField`**: Digunakan pada halaman login, register, dan form produk untuk menerima input dari pengguna.
+Fitur yang tersedia pada halaman login:
 
-- **`ElevatedButton`**: Digunakan sebagai tombol aksi seperti tombol Login, Daftar, Simpan, dan Hapus.
+- validasi input email dan password
+- tombol **show / hide password**
+- fitur **lupa kata sandi**
+- notifikasi berhasil atau gagal login menggunakan **SnackBar**
 
-- **`TextButton`**: Digunakan untuk aksi tambahan seperti navigasi Login pada AppBar dan tombol batal pada dialog.
+#### Tampilan Login (Light Mode)
+<p align="center">
+  <img src="assets/screenshot/login-light.png" alt="Login Light" width="300"/>
+</p>
 
-- **`FloatingActionButton`**: Digunakan untuk menambahkan produk baru.
+#### Tampilan Login (Dark Mode)
+<p align="center">
+  <img src="assets/screenshot/login-dark.png" alt="Login Dark" width="300"/>
+</p>
 
-- **`GestureDetector`**: Digunakan untuk menangani interaksi seperti membuka form edit, memilih gambar, mengganti gambar, dan menghapus gambar.
+---
 
-- **`AlertDialog`**: Digunakan untuk menampilkan konfirmasi sebelum menghapus produk.
+### 4. Menambahkan Produk
 
-- **`SnackBar`**: Digunakan untuk menampilkan notifikasi setelah berhasil melakukan aksi atau ketika terjadi kesalahan.
+Pengguna dapat menambahkan produk baru melalui halaman form dengan mengisi:
 
-- **`RefreshIndicator`**: Digunakan untuk memuat ulang data produk dengan cara pull to refresh.
+- nama produk
+- harga
+- stok
+- foto produk
 
-- **`CircularProgressIndicator`**: Digunakan untuk menampilkan indikator loading saat proses login, registrasi, mengambil data, menyimpan produk, dan upload gambar.
+Setelah data diisi, aplikasi akan melakukan validasi terlebih dahulu. Jika valid, data akan disimpan ke tabel **produk** pada database Supabase. Jika pengguna memilih foto, maka foto akan diunggah ke **Supabase Storage**.
 
-- **`Image.asset`**: Digunakan untuk menampilkan banner gambar pada halaman utama aplikasi.
+#### Tampilan Tambah Produk (Light Mode)
+<p align="center">
+  <img src="assets/screenshot/tambahproduk-light.png" alt="Tambah Produk Light" width="300"/>
+</p>
 
-- **`Image.network`**: Digunakan untuk menampilkan foto produk yang diambil dari URL Supabase Storage.
+#### Tampilan Tambah Produk (Dark Mode)
+<p align="center">
+  <img src="assets/screenshot/tambahproduk-dark.png" alt="Tambah Produk Dark" width="300"/>
+</p>
 
-- **`Image.memory`** dan **`Image.file`**: Digunakan untuk menampilkan preview gambar yang dipilih pengguna sebelum diunggah.
+---
 
-- **`State Management (StatefulWidget & setState())`**: Digunakan untuk mengelola perubahan data produk, status loading, autentikasi, dan preview gambar sehingga tampilan akan otomatis diperbarui ketika terjadi perubahan data.
+### 5. Menampilkan Daftar Produk
+
+Data produk yang berhasil ditambahkan akan ditampilkan pada halaman utama dalam bentuk card/grid. Setiap card menampilkan informasi utama produk, yaitu:
+
+- foto produk
+- nama produk
+- harga
+- stok
+
+Daftar produk ditampilkan secara dinamis dari database Supabase.
+
+#### Tampilan Daftar Produk
+<p align="center">
+  <img src="assets/screenshot/daftarproduk.png" alt="Daftar Produk" width="300"/>
+</p>
+
+---
+
+### 6. Empty State (Produk Kosong)
+
+Jika belum ada produk yang tersimpan di database, aplikasi akan menampilkan tampilan kosong dengan pesan bahwa produk belum tersedia. Fitur ini membantu pengguna agar tetap mendapatkan feedback visual saat data masih kosong.
+
+#### Tampilan Produk Kosong
+<p align="center">
+  <img src="assets/screenshot/produkkosong.png" alt="Produk Kosong" width="300"/>
+</p>
+
+---
+
+### 7. Mengedit Produk
+
+Produk yang sudah ditambahkan dapat diedit kembali. Pengguna bisa membuka halaman edit dengan menekan card produk atau tombol edit yang tersedia.
+
+Pada halaman ini, data lama akan ditampilkan kembali ke dalam form sehingga pengguna tinggal memperbarui data yang ingin diubah. Setelah disimpan, data akan diperbarui kembali pada database.
+
+#### Tampilan Edit Produk (Light Mode)
+<p align="center">
+  <img src="assets/screenshot/editproduk-light.png" alt="Edit Produk Light" width="300"/>
+</p>
+
+#### Tampilan Edit Produk (Dark Mode)
+<p align="center">
+  <img src="assets/screenshot/editproduk-dark.png" alt="Edit Produk Dark" width="300"/>
+</p>
+
+---
+
+### 8. Menghapus Produk
+
+Pengguna dapat menghapus produk melalui tombol hapus yang tersedia pada setiap item produk. Sebelum data dihapus, aplikasi akan menampilkan dialog konfirmasi terlebih dahulu agar pengguna tidak salah menghapus data.
+
+#### Tampilan Konfirmasi Hapus (Light Mode)
+<p align="center">
+  <img src="assets/screenshot/konfirmasihapus.light.png" alt="Konfirmasi Hapus Light" width="300"/>
+</p>
+
+#### Tampilan Konfirmasi Hapus (Dark Mode)
+<p align="center">
+  <img src="assets/screenshot/konfirmasihapus-dark.png" alt="Konfirmasi Hapus Dark" width="300"/>
+</p>
+
+---
+
+### 9. Upload dan Preview Foto Produk
+
+Aplikasi mendukung fitur upload foto produk menggunakan **image_picker**. Setelah gambar dipilih, aplikasi akan langsung menampilkan preview gambar sebelum produk disimpan.
+
+Pada fitur ini, pengguna juga bisa:
+
+- memilih foto dari galeri
+- melihat preview foto sebelum upload
+- mengganti foto yang sudah dipilih
+- menghapus foto yang dipilih
+- melihat foto lama saat sedang mengedit produk
+
+Foto yang berhasil diunggah akan disimpan pada bucket **produk-images** di **Supabase Storage**.
+
+#### Tampilan Upload Foto
+<p align="center">
+  <img src="assets/screenshot/uploadfoto.png" alt="Upload Foto" width="300"/>
+</p>
+
+#### Tampilan Supabase Storage
+<p align="center">
+  <img src="assets/screenshot/supabase-storage.png" alt="Supabase Storage" width="300"/>
+</p>
+
+---
+
+### 10. Notifikasi Aksi (SnackBar)
+
+Aplikasi menampilkan notifikasi menggunakan **SnackBar** sebagai feedback kepada pengguna setelah melakukan suatu aksi. Misalnya:
+
+- login berhasil
+- logout berhasil
+- produk berhasil ditambahkan
+- produk berhasil diperbarui
+- produk berhasil dihapus
+- terjadi error saat proses tertentu
+
+#### Notifikasi Login Berhasil
+<p align="center">
+  <img src="assets/screenshot/notifikasiberhasillogin.png" alt="Notifikasi Login Berhasil" width="300"/>
+</p>
+
+#### Notifikasi Logout Berhasil
+<p align="center">
+  <img src="assets/screenshot/notifikasiberhasillogout.png" alt="Notifikasi Logout Berhasil" width="300"/>
+</p>
+
+#### Notifikasi Produk Ditambahkan
+<p align="center">
+  <img src="assets/screenshot/notifikasiprodukditambahkan.png" alt="Notifikasi Produk Ditambahkan" width="300"/>
+</p>
+
+#### Notifikasi Produk Diperbarui
+<p align="center">
+  <img src="assets/screenshot/notifikasiprodukdiperbarui.png" alt="Notifikasi Produk Diperbarui" width="300"/>
+</p>
+
+#### Notifikasi Produk Dihapus
+<p align="center">
+  <img src="assets/screenshot/notifikasiprodukdihapus.png" alt="Notifikasi Produk Dihapus" width="300"/>
+</p>
+
+---
+
+### 11. Loading Indicator
+
+Aplikasi juga menampilkan loading indicator saat proses tertentu sedang berjalan, seperti saat mengambil data produk, login, registrasi, maupun menyimpan data produk. Hal ini membantu pengguna mengetahui bahwa sistem sedang memproses permintaan.
+
+#### Tampilan Loading
+<p align="center">
+  <img src="assets/screenshot/loading.png" alt="Loading" width="300"/>
+</p>
+
+---
+
+### 12. Logout
+
+Ketika pengguna sudah login, tombol **Login** pada AppBar akan berubah menjadi **Logout**. Saat tombol tersebut ditekan, aplikasi akan menampilkan dialog konfirmasi sebelum pengguna benar-benar keluar dari akun.
+
+#### Tampilan Konfirmasi Logout
+<p align="center">
+  <img src="assets/screenshot/konfirmasilogout.png" alt="Konfirmasi Logout" width="300"/>
+</p>
+
+---
+
+### 13. Database Produk di Supabase
+
+Semua data produk disimpan pada tabel **produk** di Supabase. Data yang disimpan meliputi nama produk, harga, stok, dan URL foto produk.
+
+#### Tampilan Tabel Produk di Supabase
+<p align="center">
+  <img src="assets/screenshot/supabase-table.png" alt="Supabase Table" width="300"/>
+</p>
+
+---
+
+## Teknologi yang Digunakan
+
+Aplikasi **Nayo Boutique** dibangun menggunakan beberapa teknologi dan package berikut:
+
+- **Flutter** → framework utama untuk membangun aplikasi
+- **Dart** → bahasa pemrograman yang digunakan
+- **Supabase** → backend untuk database, authentication, dan storage
+- **flutter_dotenv** → menyimpan konfigurasi environment seperti URL dan Anon Key Supabase
+- **image_picker** → memilih gambar dari galeri
+- **StatefulWidget & setState()** → mengatur state secara sederhana pada aplikasi
+
+---
+
+## Struktur Halaman dan File Utama
+
+Berikut beberapa file utama yang digunakan dalam project ini:
+
+- `main.dart`  
+  Sebagai entry point aplikasi, inisialisasi `flutter_dotenv`, inisialisasi Supabase, serta pengaturan tema aplikasi.
+
+- `models/product_model.dart`  
+  Berisi model data produk yang digunakan untuk parsing data dari dan ke format JSON.
+
+- `pages/home_page.dart`  
+  Halaman utama aplikasi yang menampilkan daftar produk, toggle theme, login/logout, banner, dan navigasi ke form produk.
+
+- `pages/form_page.dart`  
+  Halaman form untuk menambahkan dan mengedit produk, termasuk upload dan preview gambar.
+
+- `pages/login_page.dart`  
+  Halaman login pengguna menggunakan Supabase Auth.
+
+- `pages/register_page.dart`  
+  Halaman registrasi akun baru menggunakan Supabase Auth.
+
+---
+
+## Widget yang Digunakan
+
+Berikut adalah beberapa widget yang digunakan dalam pengembangan aplikasi **Nayo Boutique** beserta fungsinya:
+
+- **`MaterialApp`**  
+  Digunakan sebagai root aplikasi untuk mengatur tema, title, dan struktur utama aplikasi.
+
+- **`Scaffold`**  
+  Digunakan sebagai kerangka dasar setiap halaman, seperti AppBar, body, dan FloatingActionButton.
+
+- **`AppBar`**  
+  Digunakan untuk menampilkan judul aplikasi, tombol login/logout, navigasi, dan toggle tema.
+
+- **`Column`** dan **`Row`**  
+  Digunakan untuk menyusun widget secara vertikal dan horizontal.
+
+- **`Container`**  
+  Digunakan untuk mengatur ukuran, warna, padding, margin, dan dekorasi pada komponen.
+
+- **`SingleChildScrollView`**  
+  Digunakan agar halaman dapat di-scroll, terutama pada form dan halaman autentikasi.
+
+- **`GridView.builder`**  
+  Digunakan untuk menampilkan daftar produk secara dinamis dalam bentuk grid.
+
+- **`Text`**  
+  Digunakan untuk menampilkan teks seperti judul, nama produk, harga, stok, dan pesan informasi lainnya.
+
+- **`TextField`**  
+  Digunakan untuk menerima input pengguna pada halaman login, register, dan form produk.
+
+- **`ElevatedButton`**  
+  Digunakan untuk tombol aksi utama seperti login, daftar, simpan, dan hapus.
+
+- **`TextButton`**  
+  Digunakan untuk aksi tambahan seperti batal atau login/logout.
+
+- **`FloatingActionButton`**  
+  Digunakan untuk menambahkan produk baru.
+
+- **`GestureDetector`**  
+  Digunakan untuk menangani interaksi seperti membuka form edit, memilih gambar, mengganti gambar, dan menghapus gambar.
+
+- **`AlertDialog`**  
+  Digunakan untuk menampilkan dialog konfirmasi, seperti saat logout dan hapus produk.
+
+- **`SnackBar`**  
+  Digunakan untuk menampilkan notifikasi atau feedback kepada pengguna.
+
+- **`RefreshIndicator`**  
+  Digunakan untuk memuat ulang data produk dengan fitur pull to refresh.
+
+- **`CircularProgressIndicator`**  
+  Digunakan untuk menampilkan indikator loading saat proses berlangsung.
+
+- **`Image.asset`**  
+  Digunakan untuk menampilkan gambar banner dari asset lokal.
+
+- **`Image.network`**  
+  Digunakan untuk menampilkan gambar produk dari URL Supabase Storage.
+
+- **`Image.memory`** dan **`Image.file`**  
+  Digunakan untuk menampilkan preview gambar yang dipilih sebelum diunggah.
+
+- **`StatefulWidget`** dan **`setState()`**  
+  Digunakan untuk mengelola perubahan tampilan secara langsung ketika data berubah.
+
+---
+
+## Cara Menjalankan Project
+
+### 1. Clone repository
+```bash
+git clone https://github.com/username/nayo-boutique.git
+cd nayo-boutique
