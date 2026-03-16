@@ -37,7 +37,9 @@ Melalui project ini, saya jadi lebih memahami bagaimana cara membangun aplikasi 
 
 ## Fitur Aplikasi
 
-### 1. Halaman Utama
+<details>
+<summary><b>1. Halaman Utama</b></summary>
+<br>
 
 Halaman utama menampilkan daftar produk yang diambil dari database Supabase. Pada halaman ini, pengguna bisa melihat koleksi produk dalam bentuk grid/card yang berisi foto, nama produk, harga, dan stok.
 
@@ -59,9 +61,11 @@ Selain itu, halaman utama juga dilengkapi dengan:
   <img src="assets/screenshot/homepage-dark.png" alt="Homepage Dark" width="300"/>
 </p>
 
----
+</details>
 
-### 2. Registrasi Akun
+<details>
+<summary><b>2. Registrasi Akun</b></summary>
+<br>
 
 Pengguna dapat membuat akun baru dengan mengisi:
 
@@ -88,9 +92,11 @@ Jika data valid, akun akan didaftarkan menggunakan **Supabase Auth**.
   <img src="assets/screenshot/register-dark.png" alt="Register Dark" width="300"/>
 </p>
 
----
+</details>
 
-### 3. Login Pengguna
+<details>
+<summary><b>3. Login Pengguna</b></summary>
+<br>
 
 Halaman login digunakan agar pengguna dapat masuk ke aplikasi menggunakan akun yang sudah terdaftar. Pengguna login dengan **email** dan **kata sandi**.
 
@@ -111,9 +117,11 @@ Fitur yang tersedia pada halaman login:
   <img src="assets/screenshot/login-dark.png" alt="Login Dark" width="300"/>
 </p>
 
----
+</details>
 
-### 4. Menambahkan Produk
+<details>
+<summary><b>4. Menambahkan Produk</b></summary>
+<br>
 
 Pengguna dapat menambahkan produk baru melalui halaman form dengan mengisi:
 
@@ -134,9 +142,11 @@ Setelah data diisi, aplikasi akan melakukan validasi terlebih dahulu. Jika valid
   <img src="assets/screenshot/tambahproduk-dark.png" alt="Tambah Produk Dark" width="300"/>
 </p>
 
----
+</details>
 
-### 5. Menampilkan Daftar Produk
+<details>
+<summary><b>5. Menampilkan Daftar Produk</b></summary>
+<br>
 
 Data produk yang berhasil ditambahkan akan ditampilkan pada halaman utama dalam bentuk card/grid. Setiap card menampilkan informasi utama produk, yaitu:
 
@@ -152,9 +162,11 @@ Daftar produk ditampilkan secara dinamis dari database Supabase.
   <img src="assets/screenshot/daftarproduk.png" alt="Daftar Produk" width="300"/>
 </p>
 
----
+</details>
 
-### 6. Empty State (Produk Kosong)
+<details>
+<summary><b>6. Empty State (Produk Kosong)</b></summary>
+<br>
 
 Jika belum ada produk yang tersimpan di database, aplikasi akan menampilkan tampilan kosong dengan pesan bahwa produk belum tersedia. Fitur ini membantu pengguna agar tetap mendapatkan feedback visual saat data masih kosong.
 
@@ -163,9 +175,11 @@ Jika belum ada produk yang tersimpan di database, aplikasi akan menampilkan tamp
   <img src="assets/screenshot/produkkosong.png" alt="Produk Kosong" width="300"/>
 </p>
 
----
+</details>
 
-### 7. Mengedit Produk
+<details>
+<summary><b>7. Mengedit Produk</b></summary>
+<br>
 
 Produk yang sudah ditambahkan dapat diedit kembali. Pengguna bisa membuka halaman edit dengan menekan card produk atau tombol edit yang tersedia.
 
@@ -181,9 +195,11 @@ Pada halaman ini, data lama akan ditampilkan kembali ke dalam form sehingga peng
   <img src="assets/screenshot/editproduk-dark.png" alt="Edit Produk Dark" width="300"/>
 </p>
 
----
+</details>
 
-### 8. Menghapus Produk
+<details>
+<summary><b>8. Menghapus Produk</b></summary>
+<br>
 
 Pengguna dapat menghapus produk melalui tombol hapus yang tersedia pada setiap item produk. Sebelum data dihapus, aplikasi akan menampilkan dialog konfirmasi terlebih dahulu agar pengguna tidak salah menghapus data.
 
@@ -197,9 +213,11 @@ Pengguna dapat menghapus produk melalui tombol hapus yang tersedia pada setiap i
   <img src="assets/screenshot/konfirmasihapus-dark.png" alt="Konfirmasi Hapus Dark" width="300"/>
 </p>
 
----
+</details>
 
-### 9. Upload dan Preview Foto Produk
+<details>
+<summary><b>9. Upload dan Preview Foto Produk</b></summary>
+<br>
 
 Aplikasi mendukung fitur upload foto produk menggunakan **image_picker**. Setelah gambar dipilih, aplikasi akan langsung menampilkan preview gambar sebelum produk disimpan.
 
@@ -223,9 +241,11 @@ Foto yang berhasil diunggah akan disimpan pada bucket **produk-images** di **Sup
   <img src="assets/screenshot/supabase-storage.png" alt="Supabase Storage" width="300"/>
 </p>
 
----
+</details>
 
-### 10. Notifikasi Aksi (SnackBar)
+<details>
+<summary><b>10. Notifikasi Aksi (SnackBar)</b></summary>
+<br>
 
 Aplikasi menampilkan notifikasi menggunakan **SnackBar** sebagai feedback kepada pengguna setelah melakukan suatu aksi. Misalnya:
 
@@ -261,9 +281,11 @@ Aplikasi menampilkan notifikasi menggunakan **SnackBar** sebagai feedback kepada
   <img src="assets/screenshot/notifikasiprodukdihapus.png" alt="Notifikasi Produk Dihapus" width="300"/>
 </p>
 
----
+</details>
 
-### 11. Loading Indicator
+<details>
+<summary><b>11. Loading Indicator</b></summary>
+<br>
 
 Aplikasi juga menampilkan loading indicator saat proses tertentu sedang berjalan, seperti saat mengambil data produk, login, registrasi, maupun menyimpan data produk. Hal ini membantu pengguna mengetahui bahwa sistem sedang memproses permintaan.
 
@@ -272,9 +294,11 @@ Aplikasi juga menampilkan loading indicator saat proses tertentu sedang berjalan
   <img src="assets/screenshot/loading.png" alt="Loading" width="300"/>
 </p>
 
----
+</details>
 
-### 12. Logout
+<details>
+<summary><b>12. Logout</b></summary>
+<br>
 
 Ketika pengguna sudah login, tombol **Login** pada AppBar akan berubah menjadi **Logout**. Saat tombol tersebut ditekan, aplikasi akan menampilkan dialog konfirmasi sebelum pengguna benar-benar keluar dari akun.
 
@@ -283,9 +307,11 @@ Ketika pengguna sudah login, tombol **Login** pada AppBar akan berubah menjadi *
   <img src="assets/screenshot/konfirmasilogout.png" alt="Konfirmasi Logout" width="300"/>
 </p>
 
----
+</details>
 
-### 13. Database Produk di Supabase
+<details>
+<summary><b>13. Database Produk di Supabase</b></summary>
+<br>
 
 Semua data produk disimpan pada tabel **produk** di Supabase. Data yang disimpan meliputi nama produk, harga, stok, dan URL foto produk.
 
@@ -293,6 +319,8 @@ Semua data produk disimpan pada tabel **produk** di Supabase. Data yang disimpan
 <p align="center">
   <img src="assets/screenshot/supabase-table.png" alt="Supabase Table" width="300"/>
 </p>
+
+</details>
 
 ---
 
@@ -399,12 +427,3 @@ Berikut adalah beberapa widget yang digunakan dalam pengembangan aplikasi **Nayo
 
 - **`StatefulWidget`** dan **`setState()`**  
   Digunakan untuk mengelola perubahan tampilan secara langsung ketika data berubah.
-
----
-
-## Cara Menjalankan Project
-
-### 1. Clone repository
-```bash
-git clone https://github.com/username/nayo-boutique.git
-cd nayo-boutique
