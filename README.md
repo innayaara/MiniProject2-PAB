@@ -180,9 +180,7 @@ Jika belum ada produk yang tersimpan di database, aplikasi akan menampilkan tamp
 <summary><b>7. Mengedit Produk</b></summary>
 <br>
 
-Produk yang sudah ditambahkan dapat diedit kembali. Pengguna bisa membuka halaman edit dengan menekan card produk atau tombol edit yang tersedia.
-
-Pada halaman ini, data lama akan ditampilkan kembali ke dalam form sehingga pengguna tinggal memperbarui data yang ingin diubah. Setelah disimpan, data akan diperbarui kembali pada database.
+Produk yang sudah ditambahkan dapat diedit kembali. Pengguna bisa membuka halaman edit dengan menekan card produk atau tombol edit yang tersedia. Pada halaman ini, data lama akan ditampilkan kembali ke dalam form sehingga pengguna tinggal memperbarui data yang ingin diubah. Setelah disimpan, data akan diperbarui kembali pada database.
 
 <p align="center">
   <img src="manajemen_butik/assets/screenshot/editproduk-light.png" alt="Edit Produk Light" width="420"/><br><br>
