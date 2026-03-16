@@ -133,13 +133,9 @@ class _FormPageState extends State<FormPage> {
         hargaController.text.isEmpty ||
         stokController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            widget.product == null
-                ? "Produk berhasil ditambahkan"
-                : "Produk berhasil diperbarui",
-          ),
-          backgroundColor: const Color(0xFFFF4081),
+        const SnackBar(
+          content: Text("Semua field wajib diisi!"),
+          backgroundColor: Colors.red,
           behavior: SnackBarBehavior.floating,
         ),
       );
@@ -192,7 +188,7 @@ class _FormPageState extends State<FormPage> {
                 ? "Produk berhasil ditambahkan"
                 : "Produk berhasil diperbarui",
           ),
-          backgroundColor: Colors.green,
+          backgroundColor: const Color(0xFFFF4081),
           behavior: SnackBarBehavior.floating,
         ),
       );
