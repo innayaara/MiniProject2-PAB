@@ -313,7 +313,7 @@ Ketika pengguna sudah login, tombol Login pada AppBar akan berubah menjadi Logou
 Semua data produk disimpan pada tabel **produk** di Supabase. Data yang disimpan meliputi nama produk, harga, stok, dan URL foto produk.
 
 <p align="center">
-  <img src="manajemen_butik/assets/screenshot/supabase-table.png" alt="Supabase Table" width="420"/><br><br>
+  <img src="manajemen_butik/assets/screenshot/supabase-table.png.png" alt="Supabase Table" width="420"/><br><br>
   <b>Tampilan Tabel Produk di Supabase</b>
 </p>
 
