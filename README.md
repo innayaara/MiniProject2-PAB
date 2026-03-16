@@ -10,7 +10,7 @@ Aplikasi manajemen produk butik berbasis Flutter yang saya buat untuk membantu p
 
 ## Deskripsi Aplikasi
 
-**Nayo Boutique** adalah aplikasi berbasis **Flutter** yang saya buat untuk mengelola data produk butik secara lebih praktis dan terstruktur. Melalui aplikasi ini, pengguna bisa melakukan **registrasi akun, login, menambahkan produk, mengedit produk, menghapus produk**, serta **mengunggah foto produk**.
+Nayo Boutique adalah aplikasi berbasis Flutter yang saya buat untuk mengelola data produk butik secara lebih praktis dan terstruktur. Melalui aplikasi ini, pengguna bisa melakukan registrasi akun, login, menambahkan produk, mengedit produk, menghapus produk, serta mengunggah foto produk.
 
 Setiap produk memiliki beberapa informasi utama, yaitu:
 
@@ -19,11 +19,11 @@ Setiap produk memiliki beberapa informasi utama, yaitu:
 - **Stok**
 - **Foto produk**
 
-Untuk penyimpanan data, aplikasi ini menggunakan **Supabase** sebagai backend. Data produk disimpan pada **database Supabase**, sedangkan foto produk disimpan melalui **Supabase Storage**. Selain itu, fitur autentikasi seperti **register, login, logout, dan reset password** juga memanfaatkan **Supabase Auth**.
+Untuk penyimpanan data, aplikasi ini menggunakan Supabase sebagai backend. Data produk disimpan pada database Supabase, sedangkan foto produk disimpan melalui Supabase Storage. Selain itu, fitur autentikasi seperti register, login, logout, dan reset password juga memanfaatkan Supabase Auth.
 
-Dalam proses pengembangannya, saya menggunakan **StatefulWidget** dan **setState()** untuk mengatur perubahan tampilan secara langsung ketika data berubah, misalnya saat produk berhasil ditambahkan, diedit, dihapus, atau saat proses login berlangsung.
+Dalam proses pengembangannya, saya menggunakan StatefulWidget dan setState() untuk mengatur perubahan tampilan secara langsung ketika data berubah, misalnya saat produk berhasil ditambahkan, diedit, dihapus, atau saat proses login berlangsung.
 
-Aplikasi ini dibuat sebagai bagian dari implementasi materi pada mata kuliah **Mobile Application Programming**, khususnya pada pembahasan:
+Aplikasi ini dibuat sebagai bagian dari implementasi materi pada mata kuliah Mobile Application Programming, khususnya pada pembahasan:
 
 - Widget Dasar
 - State Management Dasar
@@ -46,10 +46,10 @@ Halaman utama menampilkan daftar produk yang diambil dari database Supabase. Pad
 Selain itu, halaman utama juga dilengkapi dengan:
 
 - banner aplikasi sebagai identitas visual
-- tombol **Login** atau **Logout**
-- tombol toggle **dark mode / light mode**
-- tombol **tambah produk**
-- fitur **pull to refresh** untuk memuat ulang data produk
+- tombol Login atau Logout
+- tombol toggle dark mode / light mode
+- tombol tambah produk
+- fitur pull to refresh untuk memuat ulang data produk
 
 #### Tampilan Homepage (Light Mode)
 <p align="center">
@@ -80,7 +80,7 @@ Pada proses registrasi, aplikasi akan melakukan validasi terlebih dahulu, sepert
 - kata sandi dan konfirmasi kata sandi harus sama
 - kata sandi minimal 6 karakter
 
-Jika data valid, akun akan didaftarkan menggunakan **Supabase Auth**.
+Jika data valid, akun akan didaftarkan menggunakan Supabase Auth.
 
 #### Tampilan Register (Light Mode)
 <p align="center">
@@ -103,9 +103,8 @@ Halaman login digunakan agar pengguna dapat masuk ke aplikasi menggunakan akun y
 Fitur yang tersedia pada halaman login:
 
 - validasi input email dan password
-- tombol **show / hide password**
-- fitur **lupa kata sandi**
-- notifikasi berhasil atau gagal login menggunakan **SnackBar**
+- tombol show / hide password
+- notifikasi berhasil atau gagal login menggunakan SnackBar
 
 #### Tampilan Login (Light Mode)
 <p align="center">
@@ -130,7 +129,7 @@ Pengguna dapat menambahkan produk baru melalui halaman form dengan mengisi:
 - stok
 - foto produk
 
-Setelah data diisi, aplikasi akan melakukan validasi terlebih dahulu. Jika valid, data akan disimpan ke tabel **produk** pada database Supabase. Jika pengguna memilih foto, maka foto akan diunggah ke **Supabase Storage**.
+Setelah data diisi, aplikasi akan melakukan validasi terlebih dahulu. Jika valid, data akan disimpan ke tabel produk pada database Supabase. Jika pengguna memilih foto, maka foto akan diunggah ke Supabase Storage.
 
 #### Tampilan Tambah Produk (Light Mode)
 <p align="center">
@@ -247,7 +246,7 @@ Foto yang berhasil diunggah akan disimpan pada bucket **produk-images** di **Sup
 <summary><b>10. Notifikasi Aksi (SnackBar)</b></summary>
 <br>
 
-Aplikasi menampilkan notifikasi menggunakan **SnackBar** sebagai feedback kepada pengguna setelah melakukan suatu aksi. Misalnya:
+Aplikasi menampilkan notifikasi menggunakan SnackBar sebagai feedback kepada pengguna setelah melakukan suatu aksi. Misalnya:
 
 - login berhasil
 - logout berhasil
@@ -300,7 +299,7 @@ Aplikasi juga menampilkan loading indicator saat proses tertentu sedang berjalan
 <summary><b>12. Logout</b></summary>
 <br>
 
-Ketika pengguna sudah login, tombol **Login** pada AppBar akan berubah menjadi **Logout**. Saat tombol tersebut ditekan, aplikasi akan menampilkan dialog konfirmasi sebelum pengguna benar-benar keluar dari akun.
+Ketika pengguna sudah login, tombol Login pada AppBar akan berubah menjadi Logout. Saat tombol tersebut ditekan, aplikasi akan menampilkan dialog konfirmasi sebelum pengguna benar-benar keluar dari akun.
 
 #### Tampilan Konfirmasi Logout
 <p align="center">
@@ -328,12 +327,12 @@ Semua data produk disimpan pada tabel **produk** di Supabase. Data yang disimpan
 
 Aplikasi **Nayo Boutique** dibangun menggunakan beberapa teknologi dan package berikut:
 
-- **Flutter** → framework utama untuk membangun aplikasi
-- **Dart** → bahasa pemrograman yang digunakan
-- **Supabase** → backend untuk database, authentication, dan storage
-- **flutter_dotenv** → menyimpan konfigurasi environment seperti URL dan Anon Key Supabase
-- **image_picker** → memilih gambar dari galeri
-- **StatefulWidget & setState()** → mengatur state secara sederhana pada aplikasi
+- **Flutter**: framework utama untuk membangun aplikasi
+- **Dart**: bahasa pemrograman yang digunakan
+- **Supabase**: backend untuk database, authentication, dan storage
+- **flutter_dotenv**: menyimpan konfigurasi environment seperti URL dan Anon Key Supabase
+- **image_picker**: memilih gambar dari galeri
+- **StatefulWidget & setState()**: mengatur state secara sederhana pada aplikasi
 
 ---
 
